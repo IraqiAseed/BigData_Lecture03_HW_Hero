@@ -2,30 +2,30 @@ package parent;
 
 public abstract class Hero {
 
-    protected int hit_points;
+    protected int hitPoints;
     protected int power;
 
-    public Hero(int power, int hit_points) {
+    public Hero(int power, int hitPoints) {
         this.power = power;
-        this.hit_points = hit_points;
+        this.hitPoints = hitPoints;
     }
 
     public boolean isAlive() {
-        return (hit_points != 0);
+        return (hitPoints != 0);
     }
 
     public int getPower() {
         return power;
     }
 
-    public int getHit_points() {
-        return hit_points;
+    public int getHitPoints() {
+        return hitPoints;
     }
 
-    public void setHit_points(int hit_points) {
-        this.hit_points = hit_points;
-        if (this.hit_points < 0)
-            this.hit_points = 0;
+    public void setHitPoints(int hitPoints) {
+        this.hitPoints = hitPoints;
+        if (this.hitPoints < 0)
+            this.hitPoints = 0;
     }
 
     public void setPower(int power) {
@@ -35,16 +35,16 @@ public abstract class Hero {
     }
 
     public void kill() {
-        setHit_points(0);
+        setHitPoints(0);
         setPower(0);    //if killed, will be powerless
     }
 
-    public void decreasePower(int points_to_decrease) {
-        setPower(this.power - points_to_decrease);
+    public void decreasePower(int pointsToDecrease) {
+        setPower(this.power - pointsToDecrease);
     }
 
-    public void decreaseHit_points(int points_to_decrease) {
-        setHit_points(hit_points - points_to_decrease);
+    public void decreaseHitPoints(int pointsToDecrease) {
+        setHitPoints(hitPoints - pointsToDecrease);
     }
 
     public abstract void kick(Hero enemy);

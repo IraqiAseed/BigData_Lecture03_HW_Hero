@@ -1,6 +1,6 @@
 package manager;
 
-import factory.HeroFactory;
+import factory.HeroFactoryImpl;
 import parent.Hero;
 
 import java.util.ArrayList;
@@ -16,22 +16,22 @@ public class GameManager {
             return;
 
         System.out.println("BEFORE: " + c1.getClass().getSimpleName() + "-" + c1.hashCode() + "[Hit Points= "
-                + c1.getHit_points() + " Power: " + c1.getPower() + "] vs " + c2.getClass().getSimpleName() + "-"
-                + c2.hashCode() + "[Hit Points= " + c2.getHit_points() + " Power: " + c2.getPower() + "]");
+                + c1.getHitPoints() + " Power: " + c1.getPower() + "] vs " + c2.getClass().getSimpleName() + "-"
+                + c2.hashCode() + "[Hit Points= " + c2.getHitPoints() + " Power: " + c2.getPower() + "]");
 
         c1.kick(c2);
 
         System.out.println("AFTER:  " + c1.getClass().getSimpleName() + "-" + c1.hashCode() + "[Hit Points= "
-                + c1.getHit_points() + " Power: " + c1.getPower() + "] vs " + c2.getClass().getSimpleName() + "-"
-                + c2.hashCode() + "[Hit Points= " + c2.getHit_points() + " Power: " + c2.getPower() + "]\n");
+                + c1.getHitPoints() + " Power: " + c1.getPower() + "] vs " + c2.getClass().getSimpleName() + "-"
+                + c2.hashCode() + "[Hit Points= " + c2.getHitPoints() + " Power: " + c2.getPower() + "]\n");
     }
 
     public static void main(String[] args) {
 
-        List<Hero> heroes = new ArrayList<Hero>();
+        List<Hero> heroes = new ArrayList<>();
 
         for (int i = 0; i < NUMBER_OF_HEROES; i++) {
-            HeroFactory hero_factory = new HeroFactory();
+            HeroFactoryImpl hero_factory = new HeroFactoryImpl();
             heroes.add(hero_factory.createHero());
         }
 
@@ -45,9 +45,9 @@ public class GameManager {
 
             }
 
-            Iterator itr = heroes.iterator();
+            Iterator<Hero> itr = heroes.iterator();
             while (itr.hasNext()) {
-                Hero x = (Hero) itr.next();
+                Hero x = itr.next();
                 if (!x.isAlive())
                     itr.remove();
             }
