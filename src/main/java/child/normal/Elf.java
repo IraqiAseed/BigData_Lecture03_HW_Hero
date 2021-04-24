@@ -1,22 +1,18 @@
 package child.normal;
 
+import model.Kick;
+import model.advancedKickImpl;
 import parent.Hero;
 
 public class Elf extends Hero {
 
 
-    public Elf() {
+    public Elf()
+    {
         super(10, 10);
+        setKick( new advancedKickImpl( isAlive(), power) ) ;
     }
 
-    @Override
-    public void kick(Hero enemy) {
-        if (isAlive() && getPower() > 0 && enemy.isAlive()) {
-            if (getPower() > enemy.getPower()) {
-                enemy.kill();
-            } else {
-                enemy.decreasePower(1);
-            }
-        }
+
     }
-}
+

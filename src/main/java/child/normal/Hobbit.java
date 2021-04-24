@@ -1,20 +1,16 @@
 package child.normal;
 
+import model.CryKickImpl;
+import model.RandomKickImpl;
 import parent.Hero;
 
 public class Hobbit extends Hero {
 
-    public Hobbit() {
+    public Hobbit()
+    {
         super(0, 3);
+        setKick(new CryKickImpl(isAlive()));
     }
 
-    @Override
-    public void kick(Hero enemy) {
-        if (isAlive())
-            ToCry();
-    }
 
-    private void ToCry() {
-        System.out.println("Hobbit: Cry Cry Cry .. can't kick");
-    }
 }

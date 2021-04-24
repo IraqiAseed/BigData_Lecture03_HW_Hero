@@ -9,7 +9,7 @@ import java.util.List;
 
 public class GameManager {
 
-    private final static int NUMBER_OF_HEROES = 20;
+    private final static int NUMBER_OF_HEROES = 3;
 
     static public void fight(Hero c1, Hero c2) {
         if (!(c1.isAlive() && c2.isAlive()))

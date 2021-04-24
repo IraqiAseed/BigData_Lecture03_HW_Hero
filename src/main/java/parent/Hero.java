@@ -1,15 +1,23 @@
 package parent;
 
+import model.Kick;
+
 public abstract class Hero {
 
     protected int hitPoints;
     protected int power;
+    public Kick kick;
 
     public Hero(int power, int hitPoints) {
         this.power = power;
         this.hitPoints = hitPoints;
+
     }
 
+    public void setKick(Kick kick)
+    {
+        this.kick = kick;
+    }
     public boolean isAlive() {
         return (hitPoints != 0);
     }
@@ -47,6 +55,9 @@ public abstract class Hero {
         setHitPoints(hitPoints - pointsToDecrease);
     }
 
-    public abstract void kick(Hero enemy);
+    public  void kick(Hero enemy)
+    {
+        kick.kick(enemy);
+    }
 
 }
