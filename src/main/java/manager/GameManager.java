@@ -9,7 +9,7 @@ import java.util.List;
 
 public class GameManager {
 
-    private final static int NUMBER_OF_HEROES = 3;
+    private final static int NUMBER_OF_HEROES = 20;
 
     static public void fight(Hero c1, Hero c2) {
         if (!(c1.isAlive() && c2.isAlive()))
@@ -29,9 +29,9 @@ public class GameManager {
     public static void main(String[] args) {
 
         List<Hero> heroes = new ArrayList<>();
-
-        for (int i = 0; i < NUMBER_OF_HEROES; i++) {
-            HeroFactoryImpl hero_factory = new HeroFactoryImpl();
+        HeroFactoryImpl hero_factory = new HeroFactoryImpl();
+        for (int i = 0; i < NUMBER_OF_HEROES; i++)
+        {
             heroes.add(hero_factory.createHero());
         }
 
